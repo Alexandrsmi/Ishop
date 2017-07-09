@@ -1,0 +1,7 @@
+.addProductToBucket{
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+}
+.error{color: red;}
+.bucket-total td{border-top: 1px black solid}
