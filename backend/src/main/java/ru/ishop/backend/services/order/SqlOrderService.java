@@ -1,12 +1,15 @@
 package ru.ishop.backend.services.order;
 
 import ru.ishop.backend.services.AbstractSqlService;
-import ru.ishop.backend.services.product.Product;
 import ru.ishop.backend.sql.SqlConnectionFactory;
 
-import java.sql.*;
-import java.util.*;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author Aleksandr Smirnov.
@@ -144,6 +147,8 @@ public class SqlOrderService extends AbstractSqlService implements OrderService 
         order.addProducts(orderProducts);
         return order;
     }
+
+
 
     private Order getOrderInfo(long orderId) {
         try (Connection connection = getConnection();
