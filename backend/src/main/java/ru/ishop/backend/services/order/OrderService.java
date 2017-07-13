@@ -1,5 +1,7 @@
 package ru.ishop.backend.services.order;
 
+import ru.ishop.backend.services.product.SortField;
+
 import java.util.List;
 
 /**
@@ -22,5 +24,7 @@ public interface OrderService {
     int getBucketProductsCount(long userId);
 
     Order getOrder(long orderId);
+
+    List<Order> getOrders(long offset, long maxCount);
 
 }
