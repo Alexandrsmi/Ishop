@@ -7,14 +7,38 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Класс заявок.
  * @author Aleksandr Smirnov.
  */
 public class Order extends Id {
+    /**
+     * Поле id пользователя.
+     */
     private long userId;
+    /**
+     * Поле показывает заявка завершена или нет.
+     * True - заявка завершена, false - нет.
+     */
     private boolean finished;
+    /**
+     * Поле даты заявки.
+     */
     private Date date;
+    /**
+     * Поле цены заявки.
+     */
     private double price;
+    /**
+     * Количество продуктов в заявке.
+     */
     private int productsCount;
+    /**
+     * Поле отвечате за процесс.
+     */
+    private boolean processed;
+    /**
+     * Коллекция продуктов в заявке.
+     */
     private final List<OrderProduct> products = new ArrayList<>();
 
     public boolean containsProduct(long productId) {
@@ -68,6 +92,14 @@ public class Order extends Id {
 
     public List<OrderProduct> getProducts() {
         return products;
+    }
+
+    public boolean isProcessed() {
+        return processed;
+    }
+
+    public void setProcessed(boolean processed) {
+        this.processed = processed;
     }
 
     public void addProduct(OrderProduct orderProduct) {

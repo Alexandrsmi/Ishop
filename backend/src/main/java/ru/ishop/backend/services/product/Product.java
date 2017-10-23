@@ -8,15 +8,33 @@ import java.sql.Timestamp;
 
 
 /**
+ * Класс продукта.
  * @author Aleksandr Smirnov.
  */
 public class Product extends Id{
-
+    /**
+     * Поле названия товара.
+     */
     private String title;
+    /**
+     * Поле краткого описания.
+     */
     private String shortDescription;
+    /**
+     * Поле полного описания.
+     */
     private String fullDescription;
+    /**
+     * Поле цены.
+     */
     private double price;
+    /**
+     * Поле кол-ва.
+     */
     private long count;
+    /**
+     * Поле даты создания.
+     */
     private Timestamp createDatetime;
   
 

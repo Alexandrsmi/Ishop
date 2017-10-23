@@ -8,11 +8,17 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 /**
+ * Класс подключения к базе данных.
  * @author Aleksandr Smirnov.
  */
 public class JNDISqlConnectionFactory implements SqlConnectionFactory {
     private String DATASOURCE_CONTEXT = "java:comp/env/jdbc/SHOP_DB";
 
+    /**
+     * Метод подключения к базе данных.
+     * @return - объект подключения.
+     * @throws SQLException - исключения ошибок базы.
+     */
     @Override
     public Connection getConnection() throws SQLException {
         try {

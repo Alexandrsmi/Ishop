@@ -3,14 +3,29 @@ package ru.ishop.backend.services.user;
 import ru.ishop.backend.data.Id;
 
 /**
+ * Класс пользователя.
  * @author Aleksandr Smirnov.
  */
 public class User extends Id {
-
+    /**
+     * Поле имени пользоветля.
+     */
     private String firstName;
+    /**
+     * Поле фамилии пользователя.
+     */
     private String lastName;
+    /**
+     * Поле пароля пользователя.
+     */
     private String password;
+    /**
+     * Поле email пользователя.
+     */
     private String email;
+    /**
+     * Поле статуса пользователя.
+     */
     private UserState state;
 
     public String getFirstName() {

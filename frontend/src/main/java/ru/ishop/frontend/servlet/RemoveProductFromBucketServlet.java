@@ -5,6 +5,7 @@ import ru.ishop.backend.services.Services;
 import javax.servlet.http.HttpServletRequest;
 
 /**
+ * Класс сервлета отвечает за удаления продукта из корзины.
  * @author Aleksandr Smirnov.
  */
 public class RemoveProductFromBucketServlet extends AbstractBucketProductServlet{

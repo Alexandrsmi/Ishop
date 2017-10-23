@@ -6,6 +6,7 @@ import ru.ishop.frontend.util.Util;
 import javax.servlet.http.HttpServletRequest;
 
 /**
+ * Класс сервлета отвечает за изменения колличества товара в корзинею.
  * @author Aleksandr Smirnov.
  */
 public class UpdateProductCountInBucketServlet extends AbstractBucketProductServlet {

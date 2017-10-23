@@ -1,6 +1,7 @@
 package ru.ishop.backend.data;
 
 /**
+ * Класс id.
  * @author Aleksandr Smirnov.
  */
 public abstract class Id {

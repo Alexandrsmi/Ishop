@@ -17,7 +17,6 @@ public class AbstractSqlServiceTest {
         return str + "-" + (salt++);
     }
 
-
     protected UserService getUserService() {
         return ObjectResolver.get("userService");
     }

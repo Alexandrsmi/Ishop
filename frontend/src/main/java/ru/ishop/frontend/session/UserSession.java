@@ -4,7 +4,6 @@ import ru.ishop.backend.services.user.User;
 import ru.ishop.backend.services.user.UserState;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author Aleksandr Smirnov.

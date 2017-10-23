@@ -148,6 +148,25 @@ public class SqlOrderService extends AbstractSqlService implements OrderService 
         return order;
     }
 
+    @Override
+    public List<Order> getOrdersAllUsers() {
+        try (Connection connection = getConnection();
+             CallableStatement statement = connection.prepareCall("{call sp_orders_list()}");) {
+            List<Order> orders = new ArrayList<>();
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Order order = new Order();
+                order.setId(rs.getLong(1));
+                order.setUserId(rs.getLong(2));
+                order.setPrice(rs.getDouble(3));
+                order.setProcessed(rs.getBoolean(4));
+                orders.add(order);
+            }
+            return orders;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
     private Order getOrderInfo(long orderId) {

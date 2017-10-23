@@ -6,6 +6,7 @@ import ru.ishop.backend.sql.SqlConnectionFactory;
 import java.sql.*;
 
 /**
+ * Класс польвотельских сервисов.
  * @author Aleksandr Smirnov.
  */
 public class SqlUserService extends AbstractSqlService implements UserService {
@@ -32,6 +33,7 @@ public class SqlUserService extends AbstractSqlService implements UserService {
         return false;
     }
 
+
     public boolean existsEmail(String email) {
         try (Connection connection = getConnection();
              CallableStatement statement = connection.prepareCall("{call sp_users_exists_email(?)}");) {
@@ -45,6 +47,7 @@ public class SqlUserService extends AbstractSqlService implements UserService {
         }
         return false;
     }
+
 
     public User getUser(String email, String password) {
         try (Connection connection = getConnection();
@@ -68,6 +71,7 @@ public class SqlUserService extends AbstractSqlService implements UserService {
         return null;
     }
 
+
     public User getUser(long userId) {
         try (Connection connection = getConnection();
              CallableStatement statement = connection.prepareCall("{call sp_users_get_by_id(?)}");) {
@@ -88,6 +92,7 @@ public class SqlUserService extends AbstractSqlService implements UserService {
         }
         return null;
     }
+
 
     public boolean updateUser(User user) {
         try (Connection connection = getConnection();

@@ -14,6 +14,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 /**
+ * Класс сервлета отвечает за работу с изображениями продуктов.
  * @author Aleksandr Smirnov.
  */
 public class ProductImageServlet extends HttpServlet {
@@ -24,7 +25,12 @@ public class ProductImageServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         long productId = Util.getLongParameter(req, "productId", -1);
         Services services = ObjectResolver.get("services");
-        String path = services.getImageService().getProductImagePath(productId);
+        String path = null;
+        try {
+            path = services.getImageService().getProductImagePath(productId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         try(OutputStream os = resp.getOutputStream()){
             Files.copy(Paths.get(path),os);
             os.flush();

@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
+ * Класс сервлета отвечает за реализацию заявки пользователем.
  * @author Aleksandr Smirnov.
  */
 public class ReleaseOrderServlet extends HttpServlet {

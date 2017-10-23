@@ -9,6 +9,9 @@ import static org.junit.Assert.*;
  * @author Aleksandr Smirnov.
  */
 public class SqlUserServiceTest extends AbstractSqlServiceTest {
+    /**
+     * Тест метода создания пользователя.
+     */
     @Test
     public void createUser() {
         User user = createNewUser();
@@ -31,6 +34,9 @@ public class SqlUserServiceTest extends AbstractSqlServiceTest {
         assertNull(dbUser);
     }
 
+    /**
+     * Тест метода получения пользователя по Id.
+     */
     @Test
     public void getUserById() {
         User user = createNewUser();
@@ -78,6 +84,10 @@ public class SqlUserServiceTest extends AbstractSqlServiceTest {
         assertFalse(exists);
     }
 
+    /**
+     * Метод создает пользователя.
+     * @return user - пользователь.
+     */
     private User createNewUser() {
         User user = new User();
         user.setFirstName("Vasya");

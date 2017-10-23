@@ -92,6 +92,10 @@ public class SqlOrderServiceTest extends AbstractSqlServiceTest {
         assertEquals(6, dbProduct.getCount());
     }
 
+    /**
+     * Тестируем метод реализции заявки покупателем.
+     */
+
     @Test
     public void releaseOrder() {
         User user = createNewUser();
@@ -107,6 +111,9 @@ public class SqlOrderServiceTest extends AbstractSqlServiceTest {
         assertTrue(order.isFinished());
     }
 
+    /**
+     * Тест метод получения истории заказов пользователя.
+     */
     @Test
     public void getHistoryOrders() {
         User user = createNewUser();
@@ -120,8 +127,6 @@ public class SqlOrderServiceTest extends AbstractSqlServiceTest {
         getOrderService().addProduct(product1.getId(), 10, user.getId());
         getOrderService().releaseOrder(user.getId());
         assertEquals(2, getOrderService().historyOrders(user.getId()).size());
-
-
     }
 
     @Test
@@ -138,7 +143,7 @@ public class SqlOrderServiceTest extends AbstractSqlServiceTest {
     @Test
     public void getOrderInfo() {
         User user = createNewUser();
-        long beforeTime = System.currentTimeMillis()-1000;
+        long beforeTime = System.currentTimeMillis() - 1000;
         Product product = createNewProduct();
         Product product1 = createNewProduct();
         getOrderService().addProduct(product.getId(), 5, user.getId());
@@ -152,18 +157,30 @@ public class SqlOrderServiceTest extends AbstractSqlServiceTest {
         assertEquals(((product.getPrice() * 5) + (product1.getPrice() * 10)), order.getPrice(), 0.001);
         assertEquals(2, order.getProductsCount());
         assertTrue(order.isFinished());
-        assertTrue(beforeTime<=order.getDate().getTime());
-        assertTrue(afterTime>=order.getDate().getTime());
+        assertTrue(beforeTime <= order.getDate().getTime());
+        assertTrue(afterTime >= order.getDate().getTime());
         List<OrderProduct> orderProducts = order.getProducts();
-        assertEquals(2,orderProducts.size());
-        assertEquals(product.getId().longValue(),orderProducts.get(0).getProductId());
-        assertEquals(5,orderProducts.get(0).getCount());
-        assertEquals(order.getId().longValue(),orderProducts.get(0).getOrderId());
-        assertEquals(product1.getId().longValue(),orderProducts.get(1).getProductId());
-        assertEquals(10,orderProducts.get(1).getCount());
-        assertEquals(order.getId().longValue(),orderProducts.get(1).getOrderId());
+        assertEquals(2, orderProducts.size());
+        assertEquals(product.getId().longValue(), orderProducts.get(0).getProductId());
+        assertEquals(5, orderProducts.get(0).getCount());
+        assertEquals(order.getId().longValue(), orderProducts.get(0).getOrderId());
+        assertEquals(product1.getId().longValue(), orderProducts.get(1).getProductId());
+        assertEquals(10, orderProducts.get(1).getCount());
+        assertEquals(order.getId().longValue(), orderProducts.get(1).getOrderId());
     }
 
+
+    @Test
+    public void getOrdersAllUsers(){
+
+        List<Order> orders = getOrderService().getOrdersAllUsers();
+        assertTrue(!orders.isEmpty());
+    }
+
+    /**
+     * Метод создаёт новый товар.
+     * @return product - товар.
+     */
     private Product createNewProduct() {
         Product product = new Product();
         product.setTitle(salted("phone"));
@@ -177,6 +194,10 @@ public class SqlOrderServiceTest extends AbstractSqlServiceTest {
         return product;
     }
 
+    /**
+     * Метод создаёт покупателя.
+     * @return user - покупателя.
+     */
     private User createNewUser() {
         User user = new User();
         user.setFirstName("Vasya");

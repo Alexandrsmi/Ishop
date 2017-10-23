@@ -8,9 +8,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
+ * Абстрактный класс
  * @author Aleksandr Smirnov.
  */
 public abstract class AbstractSqlService {
+
     private SqlConnectionFactory factory;
 
     public AbstractSqlService(SqlConnectionFactory factory) {
